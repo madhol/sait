@@ -1,0 +1,175 @@
+<!-- Start with your chatter|app here -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>chatter|app</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet"
+       href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+       crossorigin="anonymous">
+    <script src="C:\Users\Lenovo\Documents\js\jquery-3.3.1.min.js"></script>
+    <script src="js/script.js" charset="utf-8">
+    </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="js/channel.js" charset="utf-8">
+    </script>
+
+
+  <!-- <script data-main="js/main" src="js/require.js"></script> -->
+  <script src="js/emojis-list.js" charset="utf-8"></script>
+
+  </head>
+  <body id="global" onload="listChannel()">
+    <script>
+
+          var emojis = require(['emojis-list']);
+          var arr = new Array();
+          for(i=0; i<100; i++){
+            $('#emojis').append('<p>'+emojis[i+400]+'</p>');
+             arr[i] = emojis[i+400];
+           }
+          console.log(arr);
+
+    </script>
+
+
+
+    <div id="channels">
+<div id="app-bar">
+    <h2 class="app-bar"> <img src="https://ip.lfe.mw.tum.de/sections/moocus.png" alt="logo_mocus"
+      style="height: 56px; background-color:inherit">
+      chatter|app</h2> <!-- The moocus picture (logo) -->
+</div>
+
+
+<ul id="channels-list">
+ </ul>
+ <button id="pus" onclick="creation()">
+  <i id="circle" class="fas fa-plus"></i>
+ </button>
+
+
+  <div id="tab-bar" class="tab-bar" style="background-color:white">
+    <button  type="button" name="button" onclick="selectNTF(New)">
+      <i class="far fa-lightbulb" style="background-color:inherit"> </i>
+      <p style="background-color:inherit">New</p> </button>
+    <button type="button" name="button" onclick='selectNTF(Trendin)'>
+      <i style="background-color:inherit" class="fas fa-fire" ></i>
+      <p style="background-color:inherit">Trendin</p></button>
+    <button type="button" name="button" onclick="selectNTF(Favs)">
+      <i class="fas fa-star" style="background-color:inherit" ></i>
+      <p style="background-color:inherit">Favs</p></button>
+  </div>
+</div>
+
+<div id="chat">
+  <div id="app-bar2" onload="switchChannel(FirstPersonOnMars)">
+      <h3 class="app-bar" >
+
+</h3>
+
+  </div>
+<div id="chatscroll">
+<!-- <div class="message">
+    <h3><b> <a href="https://map.what3words.com/cities.pushing.each" target="_blank">cities.pushing.each</a></b>
+       Wed, September 5th, 20:48 <em>15 min.left </em> </h3>
+         <div>
+    <p>God, there're so many strange people here!
+    <button type="button" name="button">+5 min.</button>
+    </p>
+          </div>
+
+</div>
+
+    <div class="ma-mess">
+    <h3><b><a href="https://map.what3words.com/swells.relay.names" target="_blank">swells.relay.names</a></b>
+      Wed, September 5th, 15:36 <em>7 min.left </em> </h3>
+<div>
+    <p>A lot of memories...
+      <button type="button" name="button">+5 min.</button>
+    </p>
+  </div>
+  </div>
+
+    <div class="message">
+
+    <h3><b><a href="https://map.what3words.com/motivate.protest.hurls" target="_blank">motivate.protest.hurls</a></b>
+      Mon, September 3th, 20:48 <em>5 min.left </em> </h3>
+<div>
+    <p>Hate being here!
+      <button type="button" name="button">+5 min.</button>
+    </p>
+  </div>
+  </div> -->
+</div>
+
+<div id="input">
+  <div id="chat-bar">
+    <button  onclick="hide_emoji()">
+      <i id="emojis-button" class="far fa-smile fa-2x"></i>
+  </button>
+  <div id="emojis">🤣😃😍😥🤔😱😭☹️ </div>
+  </div>
+
+  <form>
+  <input type="text" id="text" name="text" value="Message..." onfocus="this.value=' '" maxlength="140">
+</form>
+
+  <button id="in_but" >
+  <i id="arrow" class="fas fa-arrow-right" onclick="sendMessage()"></i>
+</button>
+
+
+</div>
+</div>
+
+
+
+
+  </body>
+</html>
+
+<!-- <li
+onclick="select_switch(Yummy)">
+  #Yummy
+  <span class="channel-meta">
+  <i class="fas fa-star" alt="star" style="background-color:inherit"></i>
+  <img src="https://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="" style="background-color:inherit">
+</span>
+  <hr> </li> -->
+<!-- Star for list items I like the most -->
+<!-- <li
+onclick="select_switch(SevenContinents)">
+#SevenContinents
+  <span class="channel-meta">
+  <i class="far fa-star" alt="star" style="background-color:inherit"></i>
+   <img src="https://ip.lfe.mw.tum.de/sections/chevron-right.png"  style="background-color:inherit">
+ </span> <hr> </li>
+
+<li
+ onclick="select_switch(KillerApp)">
+  #KillerApp
+  <span class="channel-meta">
+  <i class="fas fa-star" alt="star" style="background-color:inherit"></i>
+  <img src="https://ip.lfe.mw.tum.de/sections/chevron-right.png" alt=""style="background-color:inherit">
+</span><hr></li>  <! Star for list items I like the most --> -->
+
+<!-- <li class="selected"
+onclick="select_switch(FirstPersonOnMars)">
+#FirstPersonOnMars
+  <span class="channel-meta">
+  <i class="far fa-star" alt="star" style="background-color:inherit"></i>
+  <img src="https://ip.lfe.mw.tum.de/sections/chevron-right.png" alt=""style="background-color:inherit">
+</span><hr></li>
+
+<li
+onclick="select_switch(Octoberfest)" >
+  #Octoberfest
+  <span class="channel-meta">
+  <i class="far fa-star" alt="star" style="background-color:inherit"></i>
+  <img src="https://ip.lfe.mw.tum.de/sections/chevron-right.png" alt=""style="background-color:inherit">
+</span><hr style="height: 0.5px"> </li> -->
